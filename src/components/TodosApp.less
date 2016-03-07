@@ -1,0 +1,71 @@
+@import "../assets/palete.less";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-weight: 300;
+    background-color: @background-color;
+}
+
+.TodosApp {
+    &__wrapper {
+
+
+        min-height: 200px;
+
+
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    &__header {
+        height: 70px;
+        background-color: @primary-color;
+        color: #fff;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 10px;
+    }
+
+    &__filter {
+        background-color: @primary-color-darker;
+        color: #fff;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+
+        ul {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        li {
+            display: inline-block;
+            padding: 0 5px;
+            cursor: pointer;
+            width: 50px;
+            text-align: center;
+
+            &:hover {
+                background-color: @primary-color-lighter ;
+            }
+
+            &.active {
+                background-color: @primary-color-lighter ;
+            }
+        }
+    }
+}
