@@ -6,10 +6,10 @@ Simple React.js todo-list app for managing your everyday tasks
 
 ## Usage
 #### This app makes it easy for you to:
-* Add new tasks you should do
-* Check/uncheck progress of a task (whether you did it or not)
-* Filter tasks display by progress (all / new / done)
-* Delete tasks you don't want to see in your list
+* Add new tasks you should do (fill in the text field and press the big green button)
+* Check/uncheck progress of a task (whether you did it or not) (check/uncheck the checkbox of a task)
+* Filter tasks display by progress (all / new / done) (click on 'Show ...' tabs)
+* Delete tasks you don't want to see in your list (delete button comes up while hovering over a task)
 
 ## Prerequisites
 #### You will need the following things properly installed on your computer:
