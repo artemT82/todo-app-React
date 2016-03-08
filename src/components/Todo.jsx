@@ -1,9 +1,9 @@
-var React = require('react');
-var cx    = require('classnames');
+const React = require('react');
+const cx    = require('classnames');
 
 require('./Todo.less');
 
-var Todo = React.createClass({
+const Todo = React.createClass({
     getInitialState: function() {
         const isDone = this.props.isDone;
 
@@ -20,6 +20,10 @@ var Todo = React.createClass({
         this.props.onDoneChange();
     },
 
+    handleDeleteButtonClick: function() {
+        this.props.onTodoDelete();
+    },
+
     render: function() {
         const classes = cx('Todo__wrapper', {
             'done': this.state.isChecked
@@ -28,9 +32,14 @@ var Todo = React.createClass({
         return (
             <div className={classes}>
                 <label>
-                    <input type='checkbox' onChange={this.handleCheckboxChange} />
+                    <input
+                        type     = 'checkbox'
+                        onChange = {this.handleCheckboxChange}
+                        checked  = {this.state.isChecked}
+                    />
                     {this.props.content}
                 </label>
+                <span className='Todo__delete-button' onClick={this.handleDeleteButtonClick}>x</span>
             </div>
         );
     }

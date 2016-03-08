@@ -7,6 +7,7 @@
         margin-bottom: 10px;
         padding-bottom: 14px;
         line-height: normal;
+        position: relative;
 
         input[type='checkbox'] {
             margin-right: 10px;
@@ -17,6 +18,25 @@
                 text-decoration: line-through;
                 color: @done-text-color;
             }
+        }
+
+        &:hover .Todo__delete-button {
+            display: block;
+        }
+    }
+
+    &__delete-button {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 0.9rem;
+        cursor: pointer;
+        color: #C1C1C1;
+        transition: all 100ms ease-in 0ms;
+
+        &:hover {
+            color: @additional-text-color;
         }
     }
 }

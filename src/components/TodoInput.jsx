@@ -1,8 +1,8 @@
-var React = require('react');
+const React = require('react');
 
 require('./TodoInput.less');
 
-var TodoInput = React.createClass({
+const TodoInput = React.createClass({
     getInitialState: function() {
         return {
             inputValue: ''
@@ -18,7 +18,6 @@ var TodoInput = React.createClass({
     },
 
     handleAddButtonClick: function() {
-        // HTML5 REQUIRED
         if (this.state.inputValue === '') {
             alert('Fill text input');
             return;
@@ -41,12 +40,17 @@ var TodoInput = React.createClass({
         return (
             <div className='TodoInput__wrapper'>
                 <input
-                    type='text'
-                    value={this.state.inputValue}
-                    onChange={this.handleInputChange}
-                    placeholder='Add new todo'
+                    type        = 'text'
+                    value       = {this.state.inputValue}
+                    onChange    = {this.handleInputChange}
+                    placeholder = 'Add new todo'
                 />
-                <div className='TodoInput__add-button' onClick={this.handleAddButtonClick}>+</div>
+                <div
+                    className = 'TodoInput__add-button'
+                    onClick   = {this.handleAddButtonClick}
+                >
+                    +
+                </div>
             </div>
         );
     }

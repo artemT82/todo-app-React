@@ -1,12 +1,12 @@
-var React = require('react');
-var cx    = require('classnames');
+const React = require('react');
+const cx    = require('classnames');
 
-var TodoInput = require('./TodoInput.jsx');
-var TodosList = require('./TodosList.jsx');
+const TodoInput = require('./TodoInput.jsx');
+const TodosList = require('./TodosList.jsx');
 
 require('./TodosApp.less');
 
-var TodosApp = React.createClass({
+const TodosApp = React.createClass({
     getInitialState: function() {
         return {
             todos: [],
@@ -15,7 +15,7 @@ var TodosApp = React.createClass({
     },
 
     componentDidMount: function() {
-        var localTodos = JSON.parse(localStorage.getItem('todos'));
+        const localTodos = JSON.parse(localStorage.getItem('todos'));
 
         if (localTodos) {
             this.setState( {
@@ -24,28 +24,44 @@ var TodosApp = React.createClass({
         }
     },
 
+    componentDidUpdate: function() {
+        this._updateLocalStorage();
+    },
+
     handleTodoAdd: function(newTodo) {
-        var newTodos = this.state.todos.slice();
+        const newTodos = this.state.todos.slice();
         newTodos.unshift(newTodo);
 
         this.setState({
             todos: newTodos
-        }, this._updateLocalStorage());
+        });
     },
 
     handleTodoDoneChange: function(todo) {
-        var newTodos = this.state.todos.slice();
-        var todoId = todo.id;
+        const todoId = todo.id;
+        const newTodos = this.state.todos.slice();
 
         newTodos.map((currentTodo) => {
             if (currentTodo.id === todoId) {
                 currentTodo.done = !currentTodo.done;
             }
         });
-        console.log(newTodos);
+
         this.setState({
             todos: newTodos
-        }, this._updateLocalStorage());
+        });
+    },
+
+    handleTodoDelete: function(todo) {
+        const todoId = todo.id;
+
+        const newTodos = this.state.todos.filter((currentTodo) => {
+            return currentTodo.id !== todoId;
+        });
+
+        this.setState({
+            todos: newTodos
+        });
     },
 
     handleShowClick: function(newShow) {
@@ -55,8 +71,7 @@ var TodosApp = React.createClass({
     },
 
     _updateLocalStorage: function() {
-        // TODO: FIX INCORRECT UPDATE
-        var todos = JSON.stringify(this.state.todos);
+        const todos = JSON.stringify(this.state.todos);
         localStorage.setItem('todos', todos);
     },
 
@@ -71,15 +86,33 @@ var TodosApp = React.createClass({
                 <div className='TodosApp__filter'>
                         Show
                         <ul>
-                            <li className={allClasses} onClick={this.handleShowClick.bind(null, 'All')}>All</li>
-                            <li className={newClasses} onClick={this.handleShowClick.bind(null, 'New')}>New</li>
-                            <li className={doneClasses} onClick={this.handleShowClick.bind(null, 'Done')}>Done</li>
+                            <li
+                                className = {allClasses}
+                                onClick   = {this.handleShowClick.bind(null, 'All')}
+                            >
+                                All
+                            </li>
+                            <li
+                                className = {newClasses}
+                                onClick   = {this.handleShowClick.bind(null, 'New')}
+                            >
+                                New
+                            </li>
+                            <li
+                                className = {doneClasses}
+                                onClick   = {this.handleShowClick.bind(null, 'Done')}
+                            >
+                                Done
+                            </li>
                         </ul>
                 </div>
-                <TodoInput
-                    onTodoAdd={this.handleTodoAdd}
+                <TodoInput onTodoAdd={this.handleTodoAdd} />
+                <TodosList
+                    data             = {this.state.todos}
+                    display          = {this.state.show}
+                    onTodoDelete     = {this.handleTodoDelete}
+                    onTodoDoneChange = {this.handleTodoDoneChange}
                 />
-                <TodosList data={this.state.todos} display={this.state.show} onTodoDoneChange={this.handleTodoDoneChange} />
             </div>
         );
     }
