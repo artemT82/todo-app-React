@@ -11,6 +11,8 @@ Simple React.js todo-list app for managing your everyday tasks
 * Filter tasks display by progress (all / new / done) (click on 'Show ...' tabs)
 * Delete tasks you don't want to see in your list (delete button comes up while hovering over a task)
 
+#### Tasks you've added would be available for you even after closing a browser tab or browser itself
+
 ## Prerequisites
 #### You will need the following things properly installed on your computer:
 * [Git](http://git-scm.com)
