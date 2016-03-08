@@ -1,2 +1,2 @@
 # todo-app-React
-Simple React.js todo-list app
+[WIP] Simple React.js todo-list app
