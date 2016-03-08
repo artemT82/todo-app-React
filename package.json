@@ -10,9 +10,10 @@
   "author": "Artem Tymchenko",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.3",
+    "jquery": "*",
     "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "jquery": "*"
+    "react-dom": "^0.14.6"
   },
   "devDependencies": {
     "autoprefixer-loader": "*",
