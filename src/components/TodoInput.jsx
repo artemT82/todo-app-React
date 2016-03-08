@@ -38,6 +38,7 @@ var TodoInput = React.createClass({
                     type='text'
                     value={this.state.inputValue}
                     onChange={this.handleInputChange}
+                    placeholder='Add new todo'
                 />
                 <div className='TodoInput__add-button' onClick={this.handleAddButtonClick}>+</div>
             </div>
