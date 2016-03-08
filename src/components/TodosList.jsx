@@ -12,7 +12,7 @@ var TodosList = React.createClass({
             <div className='TodosList__wrapper'>
                 {
                     todos.map((todo, index) => {
-                        return <Todo key={index} content={todo} />;
+                        return <Todo key={index} content={todo.text} />;
                     })
                 }
             </div>

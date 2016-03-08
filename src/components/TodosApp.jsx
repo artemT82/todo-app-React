@@ -12,20 +12,32 @@ var TodosApp = React.createClass({
         };
     },
 
+    componentDidMount: function() {
+        var localTodos = JSON.parse(localStorage.getItem('todos'));
+
+        if (localTodos) {
+            this.setState( {
+                todos: localTodos
+            });
+        }
+    },
+
     handleTodoAdd: function(newTodo) {
         var newTodos = this.state.todos.slice();
-
         newTodos.unshift(newTodo);
+
+        console.log(newTodos);
 
         this.setState({
             todos: newTodos
-        });
-        // update localStorage
+        }, this._updateLocalStorage());
     },
 
-    // _updateLocalStorage: function() {
-
-    // },
+    _updateLocalStorage: function() {
+        // TODO: FIX INCORRECT UPDATE
+        var todos = JSON.stringify(this.state.todos);
+        localStorage.setItem('todos', todos);
+    },
 
     render: function() {
         return (

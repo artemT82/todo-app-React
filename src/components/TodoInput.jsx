@@ -24,7 +24,12 @@ var TodoInput = React.createClass({
             return;
         }
 
-        this.props.onTodoAdd(this.state.inputValue);
+        const newTodo = {
+            id: Date.now(),
+            text: this.state.inputValue
+        };
+
+        this.props.onTodoAdd(newTodo);
 
         this.setState({
             inputValue: ''

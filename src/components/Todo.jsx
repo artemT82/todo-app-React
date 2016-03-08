@@ -5,7 +5,7 @@ require('./Todo.less');
 var Todo = React.createClass({
     render: function() {
         return (
-            <div className='Todo__wrapper done'>
+            <div className='Todo__wrapper'>
                 <label>
                 <input type='checkbox' />
                 {this.props.content}
