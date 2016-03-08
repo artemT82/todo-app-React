@@ -9,7 +9,7 @@ var TodosList = React.createClass({
         const todos = this.props.data;
 
         return (
-            <div>
+            <div className='TodosList__wrapper'>
                 {
                     todos.map((todo, index) => {
                         return <Todo key={index} content={todo} />;

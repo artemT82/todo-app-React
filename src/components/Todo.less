@@ -1,0 +1,22 @@
+@import "../assets/palete.less";
+
+.Todo {
+    &__wrapper {
+        min-height: 35px;
+        border-bottom: 1px solid @divider-color;
+        margin-bottom: 10px;
+        padding-bottom: 14px;
+        line-height: normal;
+
+        input[type='checkbox'] {
+            margin-right: 10px;
+        }
+
+        &.done {
+            label {
+                text-decoration: line-through;
+                color: @done-text-color;
+            }
+        }
+    }
+}

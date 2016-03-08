@@ -5,8 +5,11 @@ require('./Todo.less');
 var Todo = React.createClass({
     render: function() {
         return (
-            <div>
+            <div className='Todo__wrapper done'>
+                <label>
+                <input type='checkbox' />
                 {this.props.content}
+                </label>
             </div>
         );
     }
